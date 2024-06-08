@@ -52,6 +52,98 @@ const DreamTempleJourney = () => {
       updateRowWidth();
     }
 
+    // GSAP timeline and ScrollTrigger for step buttons and lines
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: container,
+        start: "top 10%",
+        end: "+=400%",
+        scrub: 1,
+        pin: true,
+        onUpdate: (self) => {
+          const progress = self.progress;
+          const slideIndex = Math.floor(progress * 4); // Assuming there are 4 slides
+          goToSlide(slideIndex);
+        },
+      },
+    });
+
+    tl.fromTo(
+      ".step-button1",
+      {
+        boxShadow: "0px 0px 0 0 #e0a922 inset",
+      },
+      {
+        boxShadow: "85px 0px 0 0 #e0a922 inset",
+      },
+      0
+    )
+      .fromTo(
+        ".line1",
+        {
+          "--line-before-width": "0%",
+        },
+        {
+          "--line-before-width": "100%",
+        },
+        ">"
+      )
+      .fromTo(
+        ".step-button2",
+        {
+          boxShadow: "0px 0px 0 0 #e0a922 inset",
+        },
+        {
+          boxShadow: "85px 0px 0 0 #e0a922 inset",
+        },
+        ">"
+      )
+      .fromTo(
+        ".line2",
+        {
+          "--line-before-width": "0%",
+        },
+        {
+          "--line-before-width": "100%",
+        },
+        ">"
+      )
+      .fromTo(
+        ".step-button3",
+        {
+          boxShadow: "0px 0px 0 0 #e0a922 inset",
+        },
+        {
+          boxShadow: "85px 0px 0 0 #e0a922 inset",
+        },
+        ">"
+      )
+      .fromTo(
+        ".line3",
+        {
+          "--line-before-width": "0%",
+        },
+        {
+          "--line-before-width": "100%",
+        },
+        ">"
+      )
+      .fromTo(
+        ".step-button4",
+        {
+          boxShadow: "0px 0px 0 0 #e0a922 inset",
+        },
+        {
+          boxShadow: "85px 0px 0 0 #e0a922 inset",
+        },
+        ">"
+      );
+
+    const goToSlide = (slideIndex) => {
+      console.log("Go to slide", slideIndex);
+      // Add code to navigate to the appropriate slide based on slideIndex
+    };
+
     return () => {
       ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
     };
@@ -63,14 +155,22 @@ const DreamTempleJourney = () => {
         className="container max-w-[1140px] mx-auto pt-10"
         ref={containerRef}
       >
-        <div className="flex justify-between items-center mb-10">
-          <button className="bg-yellow-800 px-3 py-2 rounded-md">btn1</button>
-          <span className="bg-slate-600 h-[4px] w-full"></span>
-          <button className="bg-yellow-800 px-3 py-2 rounded-md">btn2</button>
-          <span className="bg-slate-600 h-[4px] w-full"></span>
-          <button className="bg-yellow-800 px-3 py-2 rounded-md">btn3</button>
-          <span className="bg-slate-600 h-[4px] w-full"></span>
-          <button className="bg-yellow-800 px-3 py-2 rounded-md">btn4</button>
+        <div className="buttons_parent">
+          <div className="position_relative">
+            <button className="step-button step-button1">STEP1</button>
+          </div>
+          <div className="line line1"></div>
+          <div className="position_relative">
+            <button className="step-button step-button2">STEP2</button>
+          </div>
+          <div className="line line2"></div>
+          <div className="position_relative">
+            <button className="step-button step-button3">STEP3</button>
+          </div>
+          <div className="line line3"></div>
+          <div className="position_relative">
+            <button className="step-button step-button4">STEP4</button>
+          </div>
         </div>
         <div className="overflow-hidden">
           <div className="flex myRow" ref={rowRef}>
@@ -81,7 +181,7 @@ const DreamTempleJourney = () => {
           </div>
         </div>
       </div>
-      <div className="next-section">{/* Next section content */}</div>
+      <div className="next-section"></div>
     </div>
   );
 };
