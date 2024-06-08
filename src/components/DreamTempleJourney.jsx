@@ -57,12 +57,12 @@ const DreamTempleJourney = () => {
       scrollTrigger: {
         trigger: container,
         start: "top 10%",
-        end: "+=400%",
+        end: "+=550%",
         scrub: 1,
         pin: true,
         onUpdate: (self) => {
           const progress = self.progress;
-          const slideIndex = Math.floor(progress * 4); // Assuming there are 4 slides
+          const slideIndex = Math.floor(progress * 4); 
           goToSlide(slideIndex);
         },
       },
@@ -141,7 +141,6 @@ const DreamTempleJourney = () => {
 
     const goToSlide = (slideIndex) => {
       console.log("Go to slide", slideIndex);
-      // Add code to navigate to the appropriate slide based on slideIndex
     };
 
     return () => {
@@ -172,7 +171,7 @@ const DreamTempleJourney = () => {
             <button className="step-button bg-yellow-200 px-3 py-2 step-button4">STEP4</button>
           </div>
         </div>
-        <div className="overflow-hidden">
+        <div>
           <div className="flex" ref={rowRef}>
             <img src={myImg} alt="img" />
             <img src={myImg} alt="img" />
