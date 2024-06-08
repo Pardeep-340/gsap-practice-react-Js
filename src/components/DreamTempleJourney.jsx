@@ -155,25 +155,25 @@ const DreamTempleJourney = () => {
         className="container max-w-[1140px] mx-auto pt-10"
         ref={containerRef}
       >
-        <div className="buttons_parent">
-          <div className="position_relative">
-            <button className="step-button step-button1">STEP1</button>
+        <div className="buttons_parent flex items-center justify-between">
+          <div className="relative">
+            <button className="step-button bg-yellow-200 px-3 py-2 step-button1">STEP1</button>
           </div>
           <div className="line line1"></div>
-          <div className="position_relative">
-            <button className="step-button step-button2">STEP2</button>
+          <div className="relative">
+            <button className="step-button bg-yellow-200 px-3 py-2 step-button2">STEP2</button>
           </div>
           <div className="line line2"></div>
-          <div className="position_relative">
-            <button className="step-button step-button3">STEP3</button>
+          <div className="relative">
+            <button className="step-button bg-yellow-200 px-3 py-2 step-button3">STEP3</button>
           </div>
           <div className="line line3"></div>
-          <div className="position_relative">
-            <button className="step-button step-button4">STEP4</button>
+          <div className="relative">
+            <button className="step-button bg-yellow-200 px-3 py-2 step-button4">STEP4</button>
           </div>
         </div>
         <div className="overflow-hidden">
-          <div className="flex myRow" ref={rowRef}>
+          <div className="flex" ref={rowRef}>
             <img src={myImg} alt="img" />
             <img src={myImg} alt="img" />
             <img src={myImg} alt="img" />
