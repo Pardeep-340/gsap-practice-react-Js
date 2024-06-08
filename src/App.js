@@ -1,10 +1,10 @@
 import "./App.css";
-import Home from "./components/Home";
+import DreamTempleJourney from "./components/DreamTempleJourney";
 
 function App() {
   return (
     <div>
-      <Home />
+      <DreamTempleJourney />
     </div>
   );
 }
